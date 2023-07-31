@@ -1,39 +1,20 @@
 import { PropValue, Component, Children, Props } from './types'
 
-const capitalACharCode = 'A'.charCodeAt(0)
-const capitalZCharCode = 'Z'.charCodeAt(0)
-
-function isUpper (input: string, index: number): boolean {
-  const charCode = input.charCodeAt(index)
-  return capitalACharCode <= charCode && capitalZCharCode >= charCode
-}
-
-function toKebabCase (camelCased: string): string {
-  let kebabCased = ''
-  for (let i = 0; i < camelCased.length; i++) {
-    const prevUpperCased = i > 0 ? isUpper(camelCased, i - 1) : true
-    const currentUpperCased = isUpper(camelCased, i)
-    const nextUpperCased = i < camelCased.length - 1 ? isUpper(camelCased, i + 1) : true
-    if (!prevUpperCased && currentUpperCased || currentUpperCased && !nextUpperCased) {
-      kebabCased += '-'
-      kebabCased += camelCased[i].toLowerCase()
-    } else {
-      kebabCased += camelCased[i]
-    }
-  }
-  return kebabCased
+function camelToKebabCase (s: string): string {
+    return s.replace(/([a-z0-9]|(?=[A-Z]))([A-Z])/g, '$1-$2').toLowerCase();
 }
 
 function escapeAttrNodeValue (value: string): string {
-  return value.replace(/(&)|(")|(\u00A0)/g, function (_, amp, quote) {
+  return value.replace(/(&)|(")|(\u00A0)/g, function (_, amp, quote, nbsp) {
     if (amp) return '&amp;'
     if (quote) return '&quot;'
-    return '&nbsp;'
+    if (nbsp) return '&nbsp;'
+    return ''
   })
 }
 
 function propToString (name: string, value: PropValue): string {
-  const formattedName = toKebabCase(name)
+  const formattedName = camelToKebabCase(name)
   const makeAttribute = (value: string) => `${formattedName}="${value}"`
 
   if (value === undefined) {
@@ -52,7 +33,7 @@ function propToString (name: string, value: PropValue): string {
   return makeAttribute(escapeAttrNodeValue(value.toString()))
 }
 
-const propsToString = (props?: Props): string => {
+function propsToString (props?: Props): string {
   if (props === undefined) {
     return ''
   }
@@ -108,7 +89,7 @@ export function jsx (
     return ''
   }
 
-  const tagName = toKebabCase(name)
+  const tagName = camelToKebabCase(name)
   if (isVoidElement(tagName, props)) {
     return `<${tagName}${propsToString(props)}>`
   } else {
