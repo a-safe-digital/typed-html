@@ -3,6 +3,7 @@
 /// <reference path="../src/jsx/intrinsic-elements.d.ts" />
 
 import { Component, Props } from '../src/types'
+import { createElement } from '../src/elements'
 import { expect } from 'chai';
 const logger = require('html-differ/lib/logger');
 const HtmlDiffer = require('html-differ').HtmlDiffer;
@@ -17,7 +18,7 @@ const testEqual = (expected: string, actual: () => string, itImplementation: (ex
   });
 };
 
-describe('jsx-jsxs auto import style (post-react17)', () => {
+describe('createElement, pre-react17', () => {
   describe('Simple html structures', () => {
     testEqual('<a href="test">a link</a>', () => <a href='test'>a link</a>);
     testEqual(`<ul>

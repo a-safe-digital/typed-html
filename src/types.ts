@@ -6,4 +6,4 @@ export type Children = {
 
 export type Props = Record<string, PropValue>
 
-export type Component <T extends Props = Props> = (props: T) => string
+export type Component <T extends Props = Props> = (props: T & Children) => string

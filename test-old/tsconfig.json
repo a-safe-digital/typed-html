@@ -1,0 +1,15 @@
+{
+  "extends": "../tsconfig.settings.json",
+  "compilerOptions": {
+    "types": ["mocha", "node"],
+    "outDir": "../dist",
+    "rootDir": "../",
+    "jsx": "react",
+    "jsxFactory": "createElement"
+  },
+  "references": [
+    {
+      "path": "../src"
+    }
+  ]
+}
