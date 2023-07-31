@@ -42,6 +42,10 @@ describe('jsx-jsxs auto import style (post-react17)', () => {
     testEqual('<p>HelloWorld!</p>', () => <p>Hello{World}!</p>);
   });
 
+  describe('Jsx.Fragment', () => {
+    testEqual('<p>Foo</p><p>Bar</p>', () => <><p>Foo</p><p>Bar</p></>);
+  });
+
   describe('Boolean props', () => {
     // https://www.w3.org/TR/html5/infrastructure.html#boolean-props
     testEqual('<input checked>', () => <input checked={true}></input>);

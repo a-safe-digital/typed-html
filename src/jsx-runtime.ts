@@ -63,7 +63,7 @@ const propsToString = (props?: Props): string => {
     .join(' ')}`
 }
 
-function isVoidTag (tagName: string) {
+function isVoidTag (tagName: string): boolean {
   return [
     'area',
     'base',
@@ -95,11 +95,17 @@ function isVoidElement (tagName: string, { children }: Children): boolean {
 }
 
 export function jsx (
-  name: string | Component,
+  name: undefined | string | Component,
   props: Props & Children = {},
-) {
+): string {
   if (typeof name === 'function') {
     return name(props)
+  }
+
+  if (name === '' || name === undefined) {
+    if (typeof props.children === 'string') return props.children
+    if (Array.isArray(props.children)) return props.children.join('')
+    return ''
   }
 
   const tagName = toKebabCase(name)

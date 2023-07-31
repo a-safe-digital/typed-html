@@ -5,7 +5,7 @@ export function createElement (
   name: string | Component,
   properties: Props | undefined = {},
   ...contents: string[]
-) {
+): string {
   const { children: childs, ...props } = (properties ?? {})
   const children: string[] = [...contents.flat()]
 
