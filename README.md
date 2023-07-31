@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/nicojs/typed-html.svg?branch=master)](https://travis-ci.org/nicojs/typed-html)
+Originally forked from: https://github.com/nicojs/typed-html/tree/88a6a6219bbf4d9368537ee29419d29671573093
 
 # Typed HTML
 
@@ -51,52 +51,31 @@ Configure your TypeScript compiler for JSX:
 ```json
 {
     "compilerOptions": {
-        "jsx": "react",
-        "jsxFactory": "elements.createElement"
+        "jsx": "react-jsx",
+        "jsxImportSource": "typed-html"
     }
 }
 ```
 
 Although we're configuring the compiler to use [React](https://facebook.github.io/react), this is not what is being used.
-Instead, we redirect all jsx element to typed-html's `elements.createElement`.
+Instead, we redirect all jsx element to typed-html's `jsx-runtime`.
 
 Now create a \*.ts**x** file. For example: `example.tsx` with the following content:
 
 ```typescript
 // example.tsx
-import * as elements from 'typed-html';
-
 const w = 'world';
 const helloWorld = <p>Hello <strong>{w}</strong></p>;
 
 typeof helloWorld; // => Just a string of course
 ```
 
-However, the following piece of code will **NOT** compile:
-
-```typescript
-<foo></foo>; // => Error: Property 'foo' does not exist on type 'JSX.IntrinsicElements'.
-<a foo="bar"></a>; // => Error:  Property 'foo' does not exist on type 'HtmlAnchorTag'
-```
-
 ## Supported environments
 
-Typed HTML supports both NodeJS and (since 2.0) the browser.
-
-For use in the browser, either load typed-html as a module, or use a bundler like webpack or rollup to bundle the package for you.
-
-```ts
-// Direct ES import:
-import * as elements from './node_modules/typed-html/dist/elements.js';
-// OR, when using a bundler like rollup or webpack
-import * as elements from 'typed-html';
-```
-
-## Supported scenarios
-
-All template scenarios are supported with plain TypeScript.
+Typed HTML originally supported both NodeJS and the browser, but since forked we only check NodeJS functioning. Browser might not work as expected, but since this is a small library, if it builds correctly and loads correctly, it shouldn't cause any strange behavior during runtime.
 
 ### Control flow
+You can use any kind of JS control flow in JSX templates:
 
 Conditional template with `?`
 
@@ -131,13 +110,15 @@ function listItem(n: number) {
 Want a helper component? Create a function that implements CustomElementHandler and you can call it like an HTML element. 
 
 ```typescript
-import {Attributes, CustomElementHandler} from "typed-html"
+import { Props, Children } from "typed-html"
 
-function Button(attributes: Attributes | undefined, contents: string[]) {
-    return <div><button type="button" class="original-class" {...attributes}>{contents}</button></div>;
+function Button ({ children, ...props }: Props & Children) {
+    return <div>
+        <button type="button" class="original-class" {...props}>{children}</button>
+    </div>;
 }
 // Or 
-const Button: CustomElementHandler = (attributes, contents) => <div><button type="button" class="original-class" {...attributes}>{contents}</button></div>;
+const Button: CustomElementHandler = ({ children, ...props }) => <div><button type="button" class="original-class" {...props}>{children}</button></div>;
 }
     
 console.log(<Button style="color:#f00">Button Text</Button>);
@@ -156,7 +137,7 @@ Prints:
 It's possible to write React-style components as well. Consider the example below.
 
 ```typescript
-import {Attributes, CustomElementHandler} from "typed-html"
+import { Attributes, CustomElementHandler } from "typed-html"
 
 function Button({ children, ...attributes }: Attributes) {
     return <div><button type="button" class="original-class" {...attributes}>{children}</button></div>;

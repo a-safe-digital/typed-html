@@ -1,16 +1,12 @@
-type PropValue = undefined | number | string | Date | boolean | string[]
+export type PropValue = undefined | number | string | Date | boolean | string[]
 
-export interface Children {
-  children?: string | string[]
+export type Children = {
+  children?: PropValue
 }
 
-export interface CustomElementHandler {
-  (props: Props & Children): string
-}
+export type Props = Record<string, PropValue>
 
-export interface Props {
-  [key: string]: PropValue
-}
+export type Component <T extends Props = Props> = (props: T) => string
 
 const capitalACharCode = 'A'.charCodeAt(0)
 const capitalZCharCode = 'Z'.charCodeAt(0)
@@ -75,7 +71,7 @@ const propsToString = (props?: Props): string => {
     .join(' ')}`
 }
 
-function isVoidElement (tagName: string) {
+function isVoidTag (tagName: string) {
   return [
     'area',
     'base',
@@ -96,8 +92,18 @@ function isVoidElement (tagName: string) {
   ].indexOf(tagName) > -1
 }
 
+function isVoidElement (tagName: string, { children }: Children): boolean {
+  if (!isVoidTag(tagName)) return false
+  if (children === undefined) return true
+  if (children === '') return true
+  if (children === false) return true
+  if (children === null) return true
+  if (Array.isArray(children) && children.length === 0) return true
+  return false
+}
+
 export function jsx (
-  name: string | CustomElementHandler,
+  name: string | Component,
   props: Props & Children = {},
 ) {
   if (typeof name === 'function') {
@@ -105,7 +111,7 @@ export function jsx (
   }
 
   const tagName = toKebabCase(name)
-  if (isVoidElement(tagName) && (props.children === undefined || props.children.length === 0)) {
+  if (isVoidElement(tagName, props)) {
     return `<${tagName}${propsToString(props)}>`
   } else {
     return `<${tagName}${propsToString(props)}>${[props.children].flat().join('')}</${tagName}>`

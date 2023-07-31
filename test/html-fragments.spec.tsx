@@ -2,7 +2,7 @@
 /// <reference path="../src/jsx/events.d.ts" />
 /// <reference path="../src/jsx/intrinsic-elements.d.ts" />
 
-import { CustomElementHandler, Props } from '../src/jsx-runtime'
+import { Component, Props } from '../src/jsx-runtime'
 import { expect } from 'chai';
 const logger = require('html-differ/lib/logger');
 const HtmlDiffer = require('html-differ').HtmlDiffer;
@@ -90,7 +90,7 @@ describe('custom elements', () => {
 });
 
 describe('children', () => {
-  const Header: CustomElementHandler = ({ children, ...props }: Props) => <h1 {...props}>{children}</h1>;
+  const Header: Component = ({ children, ...props }: Props) => <h1 {...props}>{children}</h1>;
 
   function Button({ children, ...props }: Props) {
     return <button type='button' class='original-class' {...props}>{children}</button>;
