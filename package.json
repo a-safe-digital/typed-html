@@ -1,17 +1,26 @@
 {
+  "$schema": "https://json.schemastore.org/package.json",
   "name": "typed-html",
-  "version": "3.0.1",
+  "version": "4.0.0",
   "description": "TypeSafe HTML templates using TypeScript. No need to learn a template library.",
+  "types": "dist/esm/src/index.d.ts",
+  "module": "dist/esm/src/index.js",
+  "main": "dist/src/index.js",
   "exports": {
     ".": {
-      "types": "dist/esm/src/jsx-runtime.d.ts",
-      "import": "dist/esm/src/jsx-runtime.js",
-      "require": "dist/src/jsx-runtime.js"
+      "types": "./dist/esm/src/index.d.ts",
+      "import": "./dist/esm/src/index.js",
+      "require": "./dist/src/index.js"
+    },
+    "./types": {
+      "types": "./dist/esm/src/types.d.ts",
+      "import": "./dist/esm/src/types.js",
+      "require": "./dist/src/types.js"
     },
     "./jsx-runtime": {
-      "types": "dist/esm/src/jsx-runtime.d.ts",
-      "import": "dist/esm/src/jsx-runtime.js",
-      "require": "dist/src/jsx-runtime.js"
+      "types": "./dist/esm/src/jsx-runtime.d.ts",
+      "import": "./dist/esm/src/jsx-runtime.js",
+      "require": "./dist/src/jsx-runtime.js"
     }
   },
   "repository": {
