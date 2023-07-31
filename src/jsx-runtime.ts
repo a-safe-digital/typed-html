@@ -1,4 +1,4 @@
-import { PropValue, Component, Children, Props } from './types'
+import type { PropValue, Component, Children, Props } from './types'
 
 function camelToKebabCase (s: string): string {
     return s.replace(/([a-z0-9]|(?=[A-Z]))([A-Z])/g, '$1-$2').toLowerCase();
