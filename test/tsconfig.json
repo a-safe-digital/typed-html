@@ -3,7 +3,9 @@
   "compilerOptions": {
     "types": ["mocha", "node"],
     "outDir": "../dist",
-    "rootDir": "../"
+    "rootDir": "../",
+    "jsx": "react-jsx",
+    "jsxImportSource": "../src"
   },
   "references": [
     {
