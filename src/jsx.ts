@@ -265,8 +265,8 @@ export namespace JSX {
   }
   export interface HtmlButtonTag extends HtmlTag {
     action?: string;
-    autofocus?: string;
-    disabled?: string;
+    autofocus?: string | boolean;
+    disabled?: string | boolean;
     enctype?: string;
     form?: string;
     method?: string;
@@ -300,7 +300,7 @@ export namespace JSX {
     [anything: string]: string | boolean | undefined;
   }
   export interface HtmlFieldSetTag extends HtmlTag {
-    disabled?: string;
+    disabled?: string | boolean;
     form?: string;
     name?: string;
   }
@@ -340,7 +340,7 @@ export namespace JSX {
     action?: string;
     alt?: string;
     autocomplete?: string;
-    autofocus?: string;
+    autofocus?: string | boolean;
     checked?: string | boolean;
     disabled?: string | boolean;
     enctype?: string;
@@ -351,13 +351,13 @@ export namespace JSX {
     maxlength?: string;
     method?: string;
     min?: string;
-    multiple?: string;
+    multiple?: string | boolean;
     name?: string;
     novalidate?: string | boolean;
     pattern?: string;
     placeholder?: string;
     readonly?: string;
-    required?: string;
+    required?: string | boolean;
     size?: string;
     src?: string;
     step?: string;
@@ -371,9 +371,9 @@ export namespace JSX {
     datetime?: string | Date;
   }
   export interface KeygenTag extends HtmlTag {
-    autofocus?: string;
+    autofocus?: string | boolean;
     challenge?: string;
-    disabled?: string;
+    disabled?: string | boolean;
     form?: string;
     keytype?: string;
     name?: string;
@@ -426,13 +426,13 @@ export namespace JSX {
     start?: string | number;
   }
   export interface HtmlOptgroupTag extends HtmlTag {
-    disabled?: string;
+    disabled?: string | boolean;
     label?: string;
   }
   export interface HtmlOptionTag extends HtmlTag {
-    disabled?: string;
+    disabled?: string | boolean;
     label?: string;
-    selected?: string;
+    selected?: string | boolean;
     value?: string;
   }
   export interface HtmlOutputTag extends HtmlTag {
@@ -452,7 +452,7 @@ export namespace JSX {
     type?: string;
     label?: string;
     icon?: string;
-    disabled?: string;
+    disabled?: string | boolean;
     checked?: string;
     radiogroup?: string;
     default?: string;
@@ -480,12 +480,12 @@ export namespace JSX {
     open?: string;
   }
   export interface HtmlSelectTag extends HtmlTag {
-    autofocus?: string;
-    disabled?: string;
+    autofocus?: string | boolean;
+    disabled?: string | boolean;
     form?: string;
-    multiple?: string;
+    multiple?: string | boolean;
     name?: string;
-    required?: string;
+    required?: string | boolean;
     size?: string;
   }
   export interface HtmlSourceTag extends HtmlTag {
@@ -496,7 +496,7 @@ export namespace JSX {
   export interface HtmlStyleTag extends HtmlTag {
     media?: string;
     type?: string;
-    disabled?: string;
+    disabled?: string | boolean;
     scoped?: string;
   }
   export interface HtmlTableTag extends HtmlTag {
@@ -507,17 +507,17 @@ export namespace JSX {
     headers?: string;
   }
   export interface HtmlTextAreaTag extends HtmlTag {
-    autofocus?: string;
+    autofocus?: string | boolean;
     cols?: string;
     dirname?: string;
-    disabled?: string;
+    disabled?: string | boolean;
     form?: string;
     maxlength?: string;
     minlength?: string;
     name?: string;
     placeholder?: string;
-    readonly?: string;
-    required?: string;
+    readonly?: string | boolean;
+    required?: string | boolean;
     rows?: string;
     wrap?: string;
   }
