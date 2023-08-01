@@ -1,5 +1,5 @@
-import type { Props, Component } from './types'
-import { jsx } from './jsx-runtime'
+import type { Props, Component } from './types.js'
+import { jsx } from './jsx-runtime.js'
 
 export function createElement (
   name: string | Component,

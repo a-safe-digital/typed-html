@@ -1,11 +1,12 @@
 {
+  "$schema": "https://json.schemastore.org/tsconfig.json",
   "extends": "../tsconfig.settings.json",
   "compilerOptions": {
     "types": ["mocha", "node"],
     "outDir": "../dist",
     "rootDir": "../",
     "jsx": "react-jsx",
-    "jsxImportSource": "../src"
+    "jsxImportSource": "@a-safe-digital/typed-html"
   },
   "references": [
     {

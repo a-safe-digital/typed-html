@@ -2,11 +2,13 @@
 /// <reference path="../src/jsx/events.d.ts" />
 /// <reference path="../src/jsx/intrinsic-elements.d.ts" />
 
-import { Component, Props } from '../src/types'
-import { createElement } from '../src/elements'
+import { Component, Props } from '@a-safe-digital/typed-html/types'
+import { createElement } from '@a-safe-digital/typed-html/elements'
 import { expect } from 'chai';
-const logger = require('html-differ/lib/logger');
-const HtmlDiffer = require('html-differ').HtmlDiffer;
+// @ts-expect-error
+const logger = await import('html-differ/lib/logger.js')
+// @ts-expect-error
+const HtmlDiffer = (await import('html-differ')).HtmlDiffer
 
 const singleLine = (input: string) => input.replace(/\r\n/g, '').replace(/\n/g, '');
 

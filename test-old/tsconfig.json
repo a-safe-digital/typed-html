@@ -1,6 +1,7 @@
 {
   "extends": "../tsconfig.settings.json",
   "compilerOptions": {
+    "moduleResolution": "NodeNext",
     "types": ["mocha", "node"],
     "outDir": "../dist",
     "rootDir": "../",

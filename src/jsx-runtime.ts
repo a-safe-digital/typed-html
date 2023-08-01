@@ -1,7 +1,27 @@
-import type { PropValue, Component, Children, Props } from './types'
+import type { PropValue, Component, Children, Props } from './types.js'
 
-function camelToKebabCase (s: string): string {
-    return s.replace(/([a-z0-9]|(?=[A-Z]))([A-Z])/g, '$1-$2').toLowerCase();
+const capitalACharCode = 'A'.charCodeAt(0);
+const capitalZCharCode = 'Z'.charCodeAt(0);
+
+function isUpper (input: string, index: number): boolean {
+    const charCode = input.charCodeAt(index);
+    return capitalACharCode <= charCode && capitalZCharCode >= charCode;
+};
+
+function camelToKebabCase (camelCased: string): string {
+    let kebabCased = '';
+    for (let i = 0; i < camelCased.length; i++) {
+        const prevUpperCased = i > 0 ? isUpper(camelCased, i - 1) : true;
+        const currentUpperCased = isUpper(camelCased, i);
+        const nextUpperCased = i < camelCased.length - 1 ? isUpper(camelCased, i + 1) : true;
+        if (!prevUpperCased && currentUpperCased || currentUpperCased && !nextUpperCased) {
+            kebabCased += '-';
+            kebabCased += camelCased[i].toLowerCase();
+        } else {
+            kebabCased += camelCased[i];
+        }
+    }
+    return kebabCased;
 }
 
 function escapeAttrNodeValue (value: string): string {
@@ -75,15 +95,17 @@ function isVoidElement (tagName: string, { children }: Children): boolean {
   return false
 }
 
+export const Fragment = Symbol('Fragment')
+
 export function jsx (
-  name: undefined | string | Component,
+  name: typeof Fragment | string | Component,
   props: Props & Children = {},
 ): string {
   if (typeof name === 'function') {
     return name(props)
   }
 
-  if (name === '' || name === undefined) {
+  if (name === Fragment) {
     if (typeof props.children === 'string') return props.children
     if (Array.isArray(props.children)) return props.children.join('')
     return ''

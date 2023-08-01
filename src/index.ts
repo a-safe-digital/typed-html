@@ -1,3 +1,3 @@
-export * from './types'
-export * from './jsx-runtime'
-export * from './elements'
+export * from './types.js'
+export * from './jsx-runtime.js'
+export * from './elements.js'
