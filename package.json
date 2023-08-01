@@ -2,7 +2,7 @@
   "$schema": "https://json.schemastore.org/package.json",
   "name": "@a-safe-digital/typed-html",
   "type": "module",
-  "version": "4.3.1",
+  "version": "4.3.2",
   "description": "TypeSafe HTML templates using TypeScript. No need to learn a template library.",
   "types": "dist/src/index.d.ts",
   "module": "dist/src/index.js",
@@ -59,12 +59,7 @@
     "all": "npm run clean && npm run build && npm test",
     "clean": "rm -rf dist",
     "build": "tsc --build && tsc -p src --outDir dist/cjs --module commonjs --target es2020",
-    "test": "NODE_OPTIONS='--enable-source-maps' mocha",
-    "version": "npm run generate-changelog",
-    "generate-changelog": "conventional-changelog -p angular -i CHANGELOG.md -s && git add CHANGELOG.md",
-    "release:patch": "npm version patch -m \"chore(release): %s\"",
-    "release:minor": "npm version minor -m \"chore(release): %s\"",
-    "release:major": "npm version major -m \"chore(release): %s\""
+    "test": "NODE_OPTIONS='--enable-source-maps' mocha"
   },
   "engines": {
     "node": ">=12"
@@ -78,15 +73,11 @@
   "author": "Alejandro Caston <alexcastonmolero@gmail.com>, Nico Jansen <jansennico@gmail.com>",
   "license": "ISC",
   "devDependencies": {
-    "@types/chai": "^4.2.21",
-    "@types/mocha": "^9.0.0",
+    "@types/chai": "^4.3.5",
+    "@types/mocha": "^10.0.1",
     "@types/node": "^18.11.9",
-    "chai": "^4.3.4",
-    "conventional-changelog-cli": "^2.1.1",
-    "html-differ": "^1.4.0",
-    "mocha": "^9.0.3",
-    "source-map-support": "^0.5.19",
-    "tslint": "^5.20.1",
-    "typescript": "^5.0.2"
+    "chai": "^4.3.7",
+    "mocha": "^10.2.0",
+    "typescript": "^5.1.6"
   }
 }
