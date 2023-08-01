@@ -1,28 +1,6 @@
 import type { PropValue, Component, Children, Props } from './types.js'
 
-const capitalACharCode = 'A'.charCodeAt(0);
-const capitalZCharCode = 'Z'.charCodeAt(0);
-
-function isUpper (input: string, index: number): boolean {
-    const charCode = input.charCodeAt(index);
-    return capitalACharCode <= charCode && capitalZCharCode >= charCode;
-};
-
-function camelToKebabCase (camelCased: string): string {
-    let kebabCased = '';
-    for (let i = 0; i < camelCased.length; i++) {
-        const prevUpperCased = i > 0 ? isUpper(camelCased, i - 1) : true;
-        const currentUpperCased = isUpper(camelCased, i);
-        const nextUpperCased = i < camelCased.length - 1 ? isUpper(camelCased, i + 1) : true;
-        if (!prevUpperCased && currentUpperCased || currentUpperCased && !nextUpperCased) {
-            kebabCased += '-';
-            kebabCased += camelCased[i].toLowerCase();
-        } else {
-            kebabCased += camelCased[i];
-        }
-    }
-    return kebabCased;
-}
+const camelToKebabCase = (str: string) => str.replace(/[A-Z]+(?![a-z])|[A-Z]/g, ($, ofs) => (ofs ? "-" : "") + $.toLowerCase())
 
 function escapeAttrNodeValue (value: string): string {
   return value.replace(/(&)|(")|(\u00A0)/g, function (_, amp, quote, nbsp) {
@@ -43,7 +21,7 @@ function propToString (name: string, value: PropValue): string {
   if (value === false) {
     return ''
   }
-  if (value === true) {
+  if (value === true || value === '') {
     return formattedName
   }
   if (value instanceof Date) {
@@ -57,11 +35,13 @@ function propsToString (props?: Props): string {
   if (props === undefined) {
     return ''
   }
-  return ` ${Object.entries(props)
+  const attrs = Object.entries(props)
     .filter(([k]) => k !== 'children') // filter out children props
     .map(([k, v]) => propToString(k, v))
     .filter(prop => prop.length) // filter out undefined/negative boolean props
-    .join(' ')}`
+    .join(' ')
+
+  return attrs.length === 0 ? '' : ` ${attrs}`
 }
 
 function isVoidTag (tagName: string): boolean {
