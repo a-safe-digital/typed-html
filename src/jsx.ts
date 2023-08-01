@@ -1,4 +1,214 @@
-declare namespace JSX {
+export namespace JSX {
+  export type Element = string;
+  export interface IntrinsicElements {
+    a: HtmlAnchorTag;
+    abbr: HtmlTag;
+    address: HtmlTag;
+    area: HtmlAreaTag;
+    article: HtmlTag;
+    aside: HtmlTag;
+    audio: HtmlAudioTag;
+    b: HtmlTag;
+    bb: HtmlBrowserButtonTag;
+    base: BaseTag;
+    bdi: HtmlTag;
+    bdo: HtmlTag;
+    blockquote: HtmlQuoteTag;
+    body: HtmlBodyTag;
+    br: HtmlTag;
+    button: HtmlButtonTag;
+    canvas: HtmlCanvasTag;
+    caption: HtmlTag;
+    cite: HtmlTag;
+    code: HtmlTag;
+    col: HtmlTableColTag;
+    colgroup: HtmlTableColTag;
+    commands: HtmlCommandTag;
+    data: DataTag;
+    datalist: HtmlDataListTag;
+    dd: HtmlTag;
+    del: HtmlModTag;
+    details: HtmlDetailsTag;
+    dfn: HtmlTag;
+    div: HtmlTag;
+    dl: HtmlTag;
+    dt: HtmlTag;
+    em: HtmlTag;
+    embed: HtmlEmbedTag;
+    fieldset: HtmlFieldSetTag;
+    figcaption: HtmlTag;
+    figure: HtmlTag;
+    footer: HtmlTag;
+    form: HtmlFormTag;
+    h1: HtmlTag;
+    h2: HtmlTag;
+    h3: HtmlTag;
+    h4: HtmlTag;
+    h5: HtmlTag;
+    h6: HtmlTag;
+    head: HtmlTag;
+    header: HtmlTag;
+    hr: HtmlTag;
+    html: HtmlHtmlTag;
+    i: HtmlTag;
+    iframe: HtmlIFrameTag;
+    img: HtmlImageTag;
+    input: HtmlInputTag;
+    ins: HtmlModTag;
+    kbd: HtmlTag;
+    keygen: KeygenTag;
+    label: HtmlLabelTag;
+    legend: HtmlLegendTag;
+    li: HtmlLITag;
+    link: HtmlLinkTag;
+    main: HtmlTag;
+    map: HtmlMapTag;
+    mark: HtmlTag;
+    menu: HtmlMenuTag;
+    meta: HtmlMetaTag;
+    meter: HtmlMeterTag;
+    nav: HtmlTag;
+    noscript: HtmlTag;
+    object: HtmlObjectTag;
+    ol: HtmlOListTag;
+    optgroup: HtmlOptgroupTag;
+    option: HtmlOptionTag;
+    output: HtmlOutputTag;
+    p: HtmlTag;
+    param: HtmlParamTag;
+    pre: HtmlTag;
+    progress: HtmlProgressTag;
+    q: HtmlQuoteTag;
+    rb: HtmlTag;
+    rp: HtmlTag;
+    rt: HtmlTag;
+    rtc: HtmlTag;
+    ruby: HtmlTag;
+    s: HtmlTag;
+    samp: HtmlTag;
+    script: HtmlScriptTag;
+    section: HtmlTag;
+    select: HtmlSelectTag;
+    small: HtmlTag;
+    source: HtmlSourceTag;
+    span: HtmlTag;
+    strong: HtmlTag;
+    style: HtmlStyleTag;
+    sub: HtmlTag;
+    sup: HtmlTag;
+    table: HtmlTableTag;
+    tbody: HtmlTag;
+    td: HtmlTableDataCellTag;
+    template: HtmlTag;
+    textarea: HtmlTextAreaTag;
+    tfoot: HtmlTableSectionTag;
+    th: HtmlTableHeaderCellTag;
+    thead: HtmlTableSectionTag;
+    time: HtmlTimeTag;
+    title: HtmlTag;
+    tr: HtmlTableRowTag;
+    track: HtmlTrackTag;
+    u: HtmlTag;
+    ul: HtmlTag;
+    var: HtmlTag;
+    video: HtmlVideoTag;
+    wbr: HtmlTag;
+  }
+  interface HtmlBodyTag {
+    onafterprint?: string;
+    onbeforeprint?: string;
+    onbeforeonload?: string;
+    onblur?: string;
+    onerror?: string;
+    onfocus?: string;
+    onhaschange?: string;
+    onload?: string;
+    onmessage?: string;
+    onoffline?: string;
+    ononline?: string;
+    onpagehide?: string;
+    onpageshow?: string;
+    onpopstate?: string;
+    onredo?: string;
+    onresize?: string;
+    onstorage?: string;
+    onundo?: string;
+    onunload?: string;
+  }
+  interface HtmlTag {
+    oncontextmenu?: string;
+    onkeydown?: string;
+    onkeypress?: string;
+    onkeyup?: string;
+    onclick?: string;
+    ondblclick?: string;
+    ondrag?: string;
+    ondragend?: string;
+    ondragenter?: string;
+    ondragleave?: string;
+    ondragover?: string;
+    ondragstart?: string;
+    ondrop?: string;
+    onmousedown?: string;
+    onmousemove?: string;
+    onmouseout?: string;
+    onmouseover?: string;
+    onmouseup?: string;
+    onmousewheel?: string;
+    onscroll?: string;
+  }
+  interface FormEvents {
+    onblur?: string;
+    onchange?: string;
+    onfocus?: string;
+    onformchange?: string;
+    onforminput?: string;
+    oninput?: string;
+    oninvalid?: string;
+    onselect?: string;
+    onsubmit?: string;
+  }
+  interface HtmlInputTag extends FormEvents {
+  }
+  interface HtmlFieldSetTag extends FormEvents {
+  }
+  interface HtmlFormTag extends FormEvents {
+  }
+  interface MediaEvents {
+    onabort?: string;
+    oncanplay?: string;
+    oncanplaythrough?: string;
+    ondurationchange?: string;
+    onemptied?: string;
+    onended?: string;
+    onerror?: string;
+    onloadeddata?: string;
+    onloadedmetadata?: string;
+    onloadstart?: string;
+    onpause?: string;
+    onplay?: string;
+    onplaying?: string;
+    onprogress?: string;
+    onratechange?: string;
+    onreadystatechange?: string;
+    onseeked?: string;
+    onseeking?: string;
+    onstalled?: string;
+    onsuspend?: string;
+    ontimeupdate?: string;
+    onvolumechange?: string;
+    onwaiting?: string;
+  }
+  interface HtmlAudioTag extends MediaEvents {
+  }
+  interface HtmlEmbedTag extends MediaEvents {
+  }
+  interface HtmlImageTag extends MediaEvents {
+  }
+  interface HtmlObjectTag extends MediaEvents {
+  }
+  interface HtmlVideoTag extends MediaEvents {
+  }
   interface HtmlTag {
     accesskey?: string;
     class?: string;
@@ -338,4 +548,3 @@ declare namespace JSX {
     height?: string;
   }
 }
-//# sourceMappingURL=element-types.d.ts.map

@@ -2,12 +2,12 @@
   "$schema": "https://json.schemastore.org/package.json",
   "name": "@a-safe-digital/typed-html",
   "type": "module",
-  "version": "4.3.3",
+  "version": "4.3.4",
   "description": "TypeSafe HTML templates using TypeScript. No need to learn a template library.",
   "types": "dist/src/index.d.ts",
   "module": "dist/src/index.js",
   "main": "dist/cjs/src/index.js",
-  "files": ["dist/src", "dist/cjs/src", "src/jsx", "package.json"],
+  "files": ["dist/src", "dist/cjs/src", "package.json"],
   "exports": {
     ".": {
       "types": "./dist/src/index.d.ts",

@@ -1,5 +1,5 @@
 import type { Props, Component } from './types.js'
-import { Fragment, jsx } from './jsx-runtime.js'
+import { JSX, Fragment, jsx } from './jsx-runtime.js'
 
 export function createElement (
   name: string | typeof Fragment | Component,
@@ -21,4 +21,4 @@ export function createElement (
   return jsx(name, forwardProps)
 }
 
-export { Fragment }
+export { JSX, Fragment }

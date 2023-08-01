@@ -1,3 +1,4 @@
+import { JSX } from "./jsx.js"
 import type { PropValue, Component, Children, Props } from './types.js'
 
 const camelToKebabCase = (str: string) => str.replace(/[A-Z]+(?![a-z])|[A-Z]/g, ($, ofs) => (ofs ? "-" : "") + $.toLowerCase())
@@ -99,4 +100,4 @@ export function jsx (
   }
 }
 
-export { jsx as jsxs }
+export { JSX, jsx as jsxs }

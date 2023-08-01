@@ -1,7 +1,3 @@
-/// <reference path="../src/jsx/element-types.d.ts" />
-/// <reference path="../src/jsx/events.d.ts" />
-/// <reference path="../src/jsx/intrinsic-elements.d.ts" />
-
 import { Component, Props } from '@a-safe-digital/typed-html/types'
 import { expect } from 'chai'
 
