@@ -1,6 +1,6 @@
 {
   "$schema": "https://json.schemastore.org/package.json",
-  "name": "typed-html",
+  "name": "@a-safe-digital/typed-html",
   "version": "4.2.1",
   "description": "TypeSafe HTML templates using TypeScript. No need to learn a template library.",
   "types": "dist/esm/src/index.d.ts",
