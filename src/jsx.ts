@@ -114,7 +114,7 @@ export namespace JSX {
     video: HtmlVideoTag;
     wbr: HtmlTag;
   }
-  interface HtmlBodyTag {
+  export interface HtmlBodyTag {
     onafterprint?: string;
     onbeforeprint?: string;
     onbeforeonload?: string;
@@ -135,7 +135,7 @@ export namespace JSX {
     onundo?: string;
     onunload?: string;
   }
-  interface HtmlTag {
+  export interface HtmlTag {
     oncontextmenu?: string;
     onkeydown?: string;
     onkeypress?: string;
@@ -157,7 +157,7 @@ export namespace JSX {
     onmousewheel?: string;
     onscroll?: string;
   }
-  interface FormEvents {
+  export interface FormEvents {
     onblur?: string;
     onchange?: string;
     onfocus?: string;
@@ -168,13 +168,13 @@ export namespace JSX {
     onselect?: string;
     onsubmit?: string;
   }
-  interface HtmlInputTag extends FormEvents {
+  export interface HtmlInputTag extends FormEvents {
   }
-  interface HtmlFieldSetTag extends FormEvents {
+  export interface HtmlFieldSetTag extends FormEvents {
   }
-  interface HtmlFormTag extends FormEvents {
+  export interface HtmlFormTag extends FormEvents {
   }
-  interface MediaEvents {
+  export interface MediaEvents {
     onabort?: string;
     oncanplay?: string;
     oncanplaythrough?: string;
@@ -199,17 +199,17 @@ export namespace JSX {
     onvolumechange?: string;
     onwaiting?: string;
   }
-  interface HtmlAudioTag extends MediaEvents {
+  export interface HtmlAudioTag extends MediaEvents {
   }
-  interface HtmlEmbedTag extends MediaEvents {
+  export interface HtmlEmbedTag extends MediaEvents {
   }
-  interface HtmlImageTag extends MediaEvents {
+  export interface HtmlImageTag extends MediaEvents {
   }
-  interface HtmlObjectTag extends MediaEvents {
+  export interface HtmlObjectTag extends MediaEvents {
   }
-  interface HtmlVideoTag extends MediaEvents {
+  export interface HtmlVideoTag extends MediaEvents {
   }
-  interface HtmlTag {
+  export interface HtmlTag {
     accesskey?: string;
     class?: string;
     contenteditable?: string;
@@ -225,7 +225,7 @@ export namespace JSX {
     title?: string;
     translate?: string | boolean;
   }
-  interface HtmlAnchorTag extends HtmlTag {
+  export interface HtmlAnchorTag extends HtmlTag {
     href?: string;
     target?: string;
     download?: string;
@@ -235,7 +235,7 @@ export namespace JSX {
     hreflang?: string;
     type?: string;
   }
-  interface HtmlAreaTag extends HtmlTag {
+  export interface HtmlAreaTag extends HtmlTag {
     alt?: string;
     coords?: string;
     shape?: string;
@@ -247,23 +247,23 @@ export namespace JSX {
     hreflang?: string;
     type?: string;
   }
-  interface HtmlAudioTag extends HtmlTag {
+  export interface HtmlAudioTag extends HtmlTag {
     src?: string;
     autobuffer?: string;
     autoplay?: string;
     loop?: string;
     controls?: string;
   }
-  interface BaseTag extends HtmlTag {
+  export interface BaseTag extends HtmlTag {
     href?: string;
     target?: string;
   }
-  interface HtmlQuoteTag extends HtmlTag {
+  export interface HtmlQuoteTag extends HtmlTag {
     cite?: string;
   }
-  interface HtmlBodyTag extends HtmlTag {
+  export interface HtmlBodyTag extends HtmlTag {
   }
-  interface HtmlButtonTag extends HtmlTag {
+  export interface HtmlButtonTag extends HtmlTag {
     action?: string;
     autofocus?: string;
     disabled?: string;
@@ -276,35 +276,35 @@ export namespace JSX {
     type?: string;
     value?: string;
   }
-  interface HtmlDataListTag extends HtmlTag {
+  export interface HtmlDataListTag extends HtmlTag {
   }
-  interface HtmlCanvasTag extends HtmlTag {
+  export interface HtmlCanvasTag extends HtmlTag {
     width?: string;
     height?: string;
   }
-  interface HtmlTableColTag extends HtmlTag {
+  export interface HtmlTableColTag extends HtmlTag {
     span?: string;
   }
-  interface HtmlTableSectionTag extends HtmlTag {
+  export interface HtmlTableSectionTag extends HtmlTag {
   }
-  interface HtmlTableRowTag extends HtmlTag {
+  export interface HtmlTableRowTag extends HtmlTag {
   }
-  interface DataTag extends HtmlTag {
+  export interface DataTag extends HtmlTag {
     value?: string;
   }
-  interface HtmlEmbedTag extends HtmlTag {
+  export interface HtmlEmbedTag extends HtmlTag {
     src?: string;
     type?: string;
     width?: string;
     height?: string;
     [anything: string]: string | boolean | undefined;
   }
-  interface HtmlFieldSetTag extends HtmlTag {
+  export interface HtmlFieldSetTag extends HtmlTag {
     disabled?: string;
     form?: string;
     name?: string;
   }
-  interface HtmlFormTag extends HtmlTag {
+  export interface HtmlFormTag extends HtmlTag {
     acceptCharset?: string;
     action?: string;
     autocomplete?: string;
@@ -314,10 +314,10 @@ export namespace JSX {
     novalidate?: string | boolean;
     target?: string;
   }
-  interface HtmlHtmlTag extends HtmlTag {
+  export interface HtmlHtmlTag extends HtmlTag {
     manifest?: string;
   }
-  interface HtmlIFrameTag extends HtmlTag {
+  export interface HtmlIFrameTag extends HtmlTag {
     src?: string;
     srcdoc?: string;
     name?: string;
@@ -326,7 +326,7 @@ export namespace JSX {
     width?: string;
     height?: string;
   }
-  interface HtmlImageTag extends HtmlTag {
+  export interface HtmlImageTag extends HtmlTag {
     alt?: string;
     src?: string;
     crossorigin?: string;
@@ -335,7 +335,7 @@ export namespace JSX {
     width?: string;
     height?: string;
   }
-  interface HtmlInputTag extends HtmlTag {
+  export interface HtmlInputTag extends HtmlTag {
     accept?: string;
     action?: string;
     alt?: string;
@@ -366,11 +366,11 @@ export namespace JSX {
     value?: string;
     width?: string;
   }
-  interface HtmlModTag extends HtmlTag {
+  export interface HtmlModTag extends HtmlTag {
     cite?: string;
     datetime?: string | Date;
   }
-  interface KeygenTag extends HtmlTag {
+  export interface KeygenTag extends HtmlTag {
     autofocus?: string;
     challenge?: string;
     disabled?: string;
@@ -378,14 +378,14 @@ export namespace JSX {
     keytype?: string;
     name?: string;
   }
-  interface HtmlLabelTag extends HtmlTag {
+  export interface HtmlLabelTag extends HtmlTag {
     form?: string;
     for?: string;
   }
-  interface HtmlLITag extends HtmlTag {
+  export interface HtmlLITag extends HtmlTag {
     value?: string | number;
   }
-  interface HtmlLinkTag extends HtmlTag {
+  export interface HtmlLinkTag extends HtmlTag {
     href?: string;
     crossorigin?: string;
     rel?: string;
@@ -395,16 +395,16 @@ export namespace JSX {
     sizes?: string;
     integrity?: string;
   }
-  interface HtmlMapTag extends HtmlTag {
+  export interface HtmlMapTag extends HtmlTag {
     name?: string;
   }
-  interface HtmlMetaTag extends HtmlTag {
+  export interface HtmlMetaTag extends HtmlTag {
     name?: string;
     httpEquiv?: string;
     content?: string;
     charset?: string;
   }
-  interface HtmlMeterTag extends HtmlTag {
+  export interface HtmlMeterTag extends HtmlTag {
     value?: string | number;
     min?: string | number;
     max?: string | number;
@@ -412,7 +412,7 @@ export namespace JSX {
     high?: string | number;
     optimum?: string | number;
   }
-  interface HtmlObjectTag extends HtmlTag {
+  export interface HtmlObjectTag extends HtmlTag {
     data?: string;
     type?: string;
     name?: string;
@@ -421,34 +421,34 @@ export namespace JSX {
     width?: string;
     height?: string;
   }
-  interface HtmlOListTag extends HtmlTag {
+  export interface HtmlOListTag extends HtmlTag {
     reversed?: string;
     start?: string | number;
   }
-  interface HtmlOptgroupTag extends HtmlTag {
+  export interface HtmlOptgroupTag extends HtmlTag {
     disabled?: string;
     label?: string;
   }
-  interface HtmlOptionTag extends HtmlTag {
+  export interface HtmlOptionTag extends HtmlTag {
     disabled?: string;
     label?: string;
     selected?: string;
     value?: string;
   }
-  interface HtmlOutputTag extends HtmlTag {
+  export interface HtmlOutputTag extends HtmlTag {
     for?: string;
     form?: string;
     name?: string;
   }
-  interface HtmlParamTag extends HtmlTag {
+  export interface HtmlParamTag extends HtmlTag {
     name?: string;
     value?: string;
   }
-  interface HtmlProgressTag extends HtmlTag {
+  export interface HtmlProgressTag extends HtmlTag {
     value?: string | number;
     max?: string | number;
   }
-  interface HtmlCommandTag extends HtmlTag {
+  export interface HtmlCommandTag extends HtmlTag {
     type?: string;
     label?: string;
     icon?: string;
@@ -457,16 +457,16 @@ export namespace JSX {
     radiogroup?: string;
     default?: string;
   }
-  interface HtmlLegendTag extends HtmlTag {
+  export interface HtmlLegendTag extends HtmlTag {
   }
-  interface HtmlBrowserButtonTag extends HtmlTag {
+  export interface HtmlBrowserButtonTag extends HtmlTag {
     type?: string;
   }
-  interface HtmlMenuTag extends HtmlTag {
+  export interface HtmlMenuTag extends HtmlTag {
     type?: string;
     label?: string;
   }
-  interface HtmlScriptTag extends HtmlTag {
+  export interface HtmlScriptTag extends HtmlTag {
     src?: string;
     type?: string;
     charset?: string;
@@ -476,10 +476,10 @@ export namespace JSX {
     integrity?: string;
     text?: string;
   }
-  interface HtmlDetailsTag extends HtmlTag {
+  export interface HtmlDetailsTag extends HtmlTag {
     open?: string;
   }
-  interface HtmlSelectTag extends HtmlTag {
+  export interface HtmlSelectTag extends HtmlTag {
     autofocus?: string;
     disabled?: string;
     form?: string;
@@ -488,25 +488,25 @@ export namespace JSX {
     required?: string;
     size?: string;
   }
-  interface HtmlSourceTag extends HtmlTag {
+  export interface HtmlSourceTag extends HtmlTag {
     src?: string;
     type?: string;
     media?: string;
   }
-  interface HtmlStyleTag extends HtmlTag {
+  export interface HtmlStyleTag extends HtmlTag {
     media?: string;
     type?: string;
     disabled?: string;
     scoped?: string;
   }
-  interface HtmlTableTag extends HtmlTag {
+  export interface HtmlTableTag extends HtmlTag {
   }
-  interface HtmlTableDataCellTag extends HtmlTag {
+  export interface HtmlTableDataCellTag extends HtmlTag {
     colspan?: string | number;
     rowspan?: string | number;
     headers?: string;
   }
-  interface HtmlTextAreaTag extends HtmlTag {
+  export interface HtmlTextAreaTag extends HtmlTag {
     autofocus?: string;
     cols?: string;
     dirname?: string;
@@ -521,23 +521,23 @@ export namespace JSX {
     rows?: string;
     wrap?: string;
   }
-  interface HtmlTableHeaderCellTag extends HtmlTag {
+  export interface HtmlTableHeaderCellTag extends HtmlTag {
     colspan?: string | number;
     rowspan?: string | number;
     headers?: string;
     scope?: string;
   }
-  interface HtmlTimeTag extends HtmlTag {
+  export interface HtmlTimeTag extends HtmlTag {
     datetime?: string | Date;
   }
-  interface HtmlTrackTag extends HtmlTag {
+  export interface HtmlTrackTag extends HtmlTag {
     default?: string;
     kind?: string;
     label?: string;
     src?: string;
     srclang?: string;
   }
-  interface HtmlVideoTag extends HtmlTag {
+  export interface HtmlVideoTag extends HtmlTag {
     src?: string;
     poster?: string;
     autobuffer?: string;
