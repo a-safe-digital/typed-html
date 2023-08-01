@@ -1,3 +1,5 @@
+export { JSX } from './jsx.js'
+
 export type PropValue = undefined | number | string | Date | boolean | string[]
 
 export type Children = {
