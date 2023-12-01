@@ -11,10 +11,10 @@ describe('jsx-jsxs auto import style (post-react17)', () => {
   })
 
   it('Self-closing html tags', () => {
-    expect(<area></area>).to.equal('<area>')
-    expect(<hr></hr>).to.equal('<hr>')
+    expect(<area></area>).to.equal('<area />')
+    expect(<hr></hr>).to.equal('<hr />')
     expect(<hr>content</hr>).to.equal('<hr>content</hr>')
-    expect(<meta charset='utf8'></meta>).to.equal('<meta charset="utf8">')
+    expect(<meta charset='utf8'></meta>).to.equal('<meta charset="utf8" />')
     expect(<video autoplay=''></video>).to.equal('<video autoplay></video>')
   })
 
@@ -29,10 +29,10 @@ describe('jsx-jsxs auto import style (post-react17)', () => {
 
   it('Boolean props', () => {
     // https://www.w3.org/TR/html5/infrastructure.html#boolean-props
-    expect(<input checked={true}></input>).to.equal('<input checked>')
-    expect(<input checked={false}></input>).to.equal('<input>')
-    expect(<input disabled={true}></input>).to.equal('<input disabled>')
-    expect(<input disabled={false}></input>).to.equal('<input>')
+    expect(<input checked={true}></input>).to.equal('<input checked />')
+    expect(<input checked={false}></input>).to.equal('<input />')
+    expect(<input disabled={true}></input>).to.equal('<input disabled />')
+    expect(<input disabled={false}></input>).to.equal('<input />')
     expect(<p draggable spellcheck hidden translate></p>).to.equal('<p draggable spellcheck hidden translate></p>')
     expect(<p draggable={false} spellcheck={false} hidden={false} translate={false}></p>).to.equal('<p></p>')
     expect(<form novalidate></form>).to.equal('<form novalidate></form>')
@@ -52,7 +52,7 @@ describe('jsx-jsxs auto import style (post-react17)', () => {
 
   it('Events', () => {
     expect(<div onclick='click' onmouseover='mouseover' ondrag='ondrag'></div>).to.equal('<div onclick="click" onmouseover="mouseover" ondrag="ondrag"></div>')
-    expect(<form onfocus='focus'><input onblur='blur'></input></form>).to.equal('<form onfocus="focus"><input onblur="blur"></form>')
+    expect(<form onfocus='focus'><input onblur='blur'></input></form>).to.equal('<form onfocus="focus"><input onblur="blur" /></form>')
     expect(<video onabort='abort' onseeking='seeking'></video>).to.equal('<video onabort="abort" onseeking="seeking"></video>')
   })
 
