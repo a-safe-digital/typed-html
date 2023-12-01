@@ -4,6 +4,9 @@ export namespace JSX {
     a: HtmlAnchorTag;
     abbr: HtmlTag;
     address: HtmlTag;
+    animate: HtmlSvgTag;
+    animateMotion: HtmlSvgTag;
+    animateTransform: HtmlSvgTag;
     area: HtmlAreaTag;
     article: HtmlTag;
     aside: HtmlTag;
@@ -19,7 +22,9 @@ export namespace JSX {
     button: HtmlButtonTag;
     canvas: HtmlCanvasTag;
     caption: HtmlTag;
+    circle: HtmlSvgTag;
     cite: HtmlTag;
+    clipPath: HtmlSvgTag;
     code: HtmlTag;
     col: HtmlTableColTag;
     colgroup: HtmlTableColTag;
@@ -27,19 +32,50 @@ export namespace JSX {
     data: DataTag;
     datalist: HtmlDataListTag;
     dd: HtmlTag;
+    defs: HtmlSvgTag;
     del: HtmlModTag;
+    desc: HtmlSvgTag;
     details: HtmlDetailsTag;
     dfn: HtmlTag;
     div: HtmlTag;
     dl: HtmlTag;
     dt: HtmlTag;
+    ellipse: HtmlSvgTag;
     em: HtmlTag;
     embed: HtmlEmbedTag;
+    feBlend: HtmlSvgTag;
+    feColorMatrix: HtmlSvgTag;
+    feComponentTransfer: HtmlSvgTag;
+    feComposite: HtmlSvgTag;
+    feConvolveMatrix: HtmlSvgTag;
+    feDiffuseLighting: HtmlSvgTag;
+    feDisplacementMap: HtmlSvgTag;
+    feDistantLight: HtmlSvgTag;
+    feDropShadow: HtmlSvgTag;
+    feFlood: HtmlSvgTag;
+    feFuncA: HtmlSvgTag;
+    feFuncB: HtmlSvgTag;
+    feFuncG: HtmlSvgTag;
+    feFuncR: HtmlSvgTag;
+    feGaussianBlur: HtmlSvgTag;
+    feImage: HtmlSvgTag;
+    feMerge: HtmlSvgTag;
+    feMergeNode: HtmlSvgTag;
+    feMorphology: HtmlSvgTag;
+    feOffset: HtmlSvgTag;
+    fePointLight: HtmlSvgTag;
+    feSpecularLighting: HtmlSvgTag;
+    feSpotLight: HtmlSvgTag;
+    feTile: HtmlSvgTag;
+    feTurbulence: HtmlSvgTag;
     fieldset: HtmlFieldSetTag;
     figcaption: HtmlTag;
     figure: HtmlTag;
+    filter: HtmlSvgTag;
     footer: HtmlTag;
+    foreignObject: HtmlSvgTag;
     form: HtmlFormTag;
+    g: HtmlSvgTag;
     h1: HtmlTag;
     h2: HtmlTag;
     h3: HtmlTag;
@@ -52,6 +88,7 @@ export namespace JSX {
     html: HtmlHtmlTag;
     i: HtmlTag;
     iframe: HtmlIFrameTag;
+    image: HtmlSvgTag;
     img: HtmlImageTag;
     input: HtmlInputTag;
     ins: HtmlModTag;
@@ -60,13 +97,19 @@ export namespace JSX {
     label: HtmlLabelTag;
     legend: HtmlLegendTag;
     li: HtmlLITag;
+    line: HtmlSvgTag;
+    linearGradient: HtmlSvgTag;
     link: HtmlLinkTag;
     main: HtmlTag;
     map: HtmlMapTag;
     mark: HtmlTag;
+    marker: HtmlSvgTag;
+    mask: HtmlSvgTag;
     menu: HtmlMenuTag;
     meta: HtmlMetaTag;
+    metadata: HtmlSvgTag;
     meter: HtmlMeterTag;
+    mpath: HtmlSvgTag;
     nav: HtmlTag;
     noscript: HtmlTag;
     object: HtmlObjectTag;
@@ -76,10 +119,16 @@ export namespace JSX {
     output: HtmlOutputTag;
     p: HtmlTag;
     param: HtmlParamTag;
+    path: HtmlSvgTag;
+    pattern: HtmlSvgTag;
+    polygon: HtmlSvgTag;
+    polyline: HtmlSvgTag;
     pre: HtmlTag;
     progress: HtmlProgressTag;
     q: HtmlQuoteTag;
+    radialGradient: HtmlSvgTag;
     rb: HtmlTag;
+    rect: HtmlSvgTag;
     rp: HtmlTag;
     rt: HtmlTag;
     rtc: HtmlTag;
@@ -89,18 +138,26 @@ export namespace JSX {
     script: HtmlScriptTag;
     section: HtmlTag;
     select: HtmlSelectTag;
+    set: HtmlSvgTag;
+    slot: HtmlTag;
     small: HtmlTag;
     source: HtmlSourceTag;
     span: HtmlTag;
+    stop: HtmlSvgTag
     strong: HtmlTag;
     style: HtmlStyleTag;
     sub: HtmlTag;
     sup: HtmlTag;
+    svg: HtmlSvgTag;
+    switch: HtmlSvgTag;
+    symbol: HtmlSvgTag
     table: HtmlTableTag;
     tbody: HtmlTag;
     td: HtmlTableDataCellTag;
     template: HtmlTag;
+    text: HtmlSvgTag;
     textarea: HtmlTextAreaTag;
+    textPath: HtmlSvgTag;
     tfoot: HtmlTableSectionTag;
     th: HtmlTableHeaderCellTag;
     thead: HtmlTableSectionTag;
@@ -108,10 +165,13 @@ export namespace JSX {
     title: HtmlTag;
     tr: HtmlTableRowTag;
     track: HtmlTrackTag;
+    tspan: HtmlSvgTag;
     u: HtmlTag;
     ul: HtmlTag;
+    use: HtmlSvgTag;
     var: HtmlTag;
     video: HtmlVideoTag;
+    view: HtmlSvgTag;
     wbr: HtmlTag;
   }
   export interface HtmlBodyTag {
@@ -547,4 +607,5 @@ export namespace JSX {
     width?: string;
     height?: string;
   }
+  export interface HtmlSvgTag extends HtmlTag, Record<string, any> {}
 }
