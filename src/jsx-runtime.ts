@@ -76,25 +76,23 @@ function isVoidElement (tagName: string, { children }: Children): boolean {
   return false
 }
 
-export const Fragment = Symbol('Fragment')
+export const Fragment: Component = (props) => {
+  if (typeof props.children === 'string') return props.children
+  if (Array.isArray(props.children)) return props.children.join('')
+  return ''
+}
 
 export function jsx (
-  name: typeof Fragment | string | Component,
+  name: string | Component,
   props: Props & Children = {},
 ): string {
   if (typeof name === 'function') {
     return name(props)
   }
 
-  if (name === Fragment) {
-    if (typeof props.children === 'string') return props.children
-    if (Array.isArray(props.children)) return props.children.join('')
-    return ''
-  }
-
   const tagName = camelToKebabCase(name)
   if (isVoidElement(tagName, props)) {
-    return `<${tagName}${propsToString(props)}>`
+    return `<${tagName}${propsToString(props)} />`
   } else {
     return `<${tagName}${propsToString(props)}>${[props.children].flat().join('')}</${tagName}>`
   }
